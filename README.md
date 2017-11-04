@@ -1,6 +1,6 @@
 # USB Ninja
 
-The USB Ninja is an advanced USB attack development platform designed to be <SOMETHING>. Written in Golang, it was developed on a Raspberry Pi Zero W, but should work on any device that supports USB OTG - see the list of [Supported Devices](doc/SUPPORTED.md). It makes heavy use of [configfs](https://www.kernel.org/doc/Documentation/filesystems/configfs/configfs.txt) to configure and present the drivers to the host system. See the [FAQ](doc/FAQ.md) for more information.
+The USB Ninja is an advanced USB attack development platform designed to be as simple as possible whilst leaving as many options open for development. Written in Golang, it was developed on a Raspberry Pi Zero W, but should work on any device that supports USB OTG - see the list of [Supported Devices](doc/SUPPORTED.md). It makes heavy use of [configfs](https://www.kernel.org/doc/Documentation/filesystems/configfs/configfs.txt) to configure and present the drivers to the host system. See the [FAQ](doc/FAQ.md) for more information.
 
 Currently supported gadgets are:
 * [USB-To-Serial](doc/SERIAL.md)
@@ -25,6 +25,7 @@ I'm going to assume you've got a Raspberry Pi Zero (W) but it shouldn't be too d
 
 ## Using Different Gadgets
 The configuration file resides in `/boot/usbninja/options.txt`. Open this up with any text editor and you will see the different options you can set along with some brief explanations. Each configuration is set by writing `option: value` and leaving a newline in between each.
+
 **NOTE:** Any option can be omitted by this file and the defaults will automatically be chosen. If you wanted, you could just have `gadget: <YOUR_GADGET>` and nothing else.
 Below are the currently supported options:
 * `gadget`: The USB devices that are to be imitated, also known as "gadgets". Supported gadgets are `serial`, `ethernet_ecm`, `hid_payload`, `storage`. See the [gadgets](doc/GADGETS.md) page for more information.
