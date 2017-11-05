@@ -9,6 +9,7 @@ Currently supported gadgets are:
 * [Mass Storage](doc/STORAGE.md)
 
 Download USB Ninja v1.0 from [here](https://mega.nz/#!H8E2gRrY!k2cv3XcMCp6nspSMlGr8vM6tULEOGLmcGLj2zAcT63w)!
+
 |Filename|Size|Sha1sum|
 |-|-|-|
 |USBNinja_v1.7z|2.1G|495a180f6c92dfac0f8efb095bdf2f61f83c2dd0|
