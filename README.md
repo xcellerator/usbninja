@@ -10,6 +10,8 @@ Currently supported gadgets are:
 
 Please check out [ADDED.md](ADDED.md) for details about all the new features being added!
 
+For examples of how to use the USB Ninja in different situations, check out my blog at [xcellerator.github.io](https://xcellerator.github.io)!
+
 ## Getting Started
 ### Flash the image
 If you've got a Raspberry Pi Zero (W), then its as simple as flashing the image to a MicroSD card popping it in. By default, the USB Ninja will start up in `serial` mode with a baud rate of `115200`.
