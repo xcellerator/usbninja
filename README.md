@@ -8,13 +8,23 @@ Currently supported gadgets are:
 * [HID Emulation](doc/HID.md) (currently keyboard only)
 * [Mass Storage](doc/STORAGE.md)
 
+Download USB Ninja v1.0 from [here](https://mega.nz/#!H8E2gRrY!k2cv3XcMCp6nspSMlGr8vM6tULEOGLmcGLj2zAcT63w)!
+|Filename|Size|Sha1sum|
+|-|-|-|
+|USBNinja_v1.7z|2.1G|495a180f6c92dfac0f8efb095bdf2f61f83c2dd0|
+|USBNinja_v1.img|7.5G|57828c5b8ae61da53e110799c46cfdfa6eb21a50|
+
 Please check out [ADDED.md](ADDED.md) for details about all the new features being added!
 
 For examples of how to use the USB Ninja in different situations, check out my blog at [xcellerator.github.io](https://xcellerator.github.io)!
 
 ## Getting Started
 ### Flash the image
-If you've got a Raspberry Pi Zero (W), then its as simple as flashing the image to a MicroSD card popping it in. By default, the USB Ninja will start up in `serial` mode with a baud rate of `115200`.
+If you've got a Raspberry Pi Zero (W), then its as simple as flashing the image to an 8GB MicroSD card popping it in.
+
+A simple `dd if=USBNinja_v1.img of=/dev/mmcblk0` should do the job.
+
+By default, the USB Ninja will start up in `serial` mode with a baud rate of `115200`.
 
 * Make sure the Micro USB end is plugged into the OTG port of the Pi (its labelled `USB` on the board)
 
