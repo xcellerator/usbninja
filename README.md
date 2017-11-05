@@ -24,11 +24,11 @@ I'm going to assume you've got a Raspberry Pi Zero (W) but it shouldn't be too d
 * The default login is **alarm:alarm**.
 
 ## Using Different Gadgets
-The configuration file resides in `/boot/usbninja/options.txt`. Open this up with any text editor and you will see the different options you can set along with some brief explanations. Each configuration is set by writing `option: value` and leaving a newline in between each.
+The configuration file resides in `/boot/usbninja/options.txt`, which corresponds to partition one on the MicroSD card - accessible on MacOS and Windows without setting up ext4 drivers. Open this up with any text editor and you will see the different options you can set along with some brief explanations. Each configuration is set by writing `option: value` and leaving a newline in between each.
 
 **NOTE:** Any option can be omitted by this file and the defaults will automatically be chosen. If you wanted, you could just have `gadget: <YOUR_GADGET>` and nothing else.
 Below are the currently supported options:
-* `gadget`: The USB devices that are to be imitated, also known as "gadgets". Supported gadgets are `serial`, `ethernet_ecm`, `hid_payload`, `storage`. See the [gadgets](doc/GADGETS.md) page for more information.
+* `gadget`: The USB devices that are to be imitated, also known as "gadgets", separated by commas. See the [gadgets](doc/GADGETS.md) page for more information.
 * `vendorid`: The VID that will be presented to the host machine. Along with the PID, this is very important as it will usually determine which drivers are loaded to handle the device by the host. Less of an issue in Linux, but is quite vital in Windows. Needs to be in the format: `0x????`. Defaults to **`0x1d6b`** (Linux Foundation).
 * `productid`: The PID that will be presented to the host machine. Needs to be in the format `0x????`. Defaults to **`0x0104`** (Multifunction Composite Gadget).
 * `serialnumber`: The serial number that will be presented to the host. Needs to be in the format `????????????????` (16 hex characters long). Defaults to **`fedcba9876543210`**.

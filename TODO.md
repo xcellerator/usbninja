@@ -8,6 +8,8 @@
 * hid_remote gadget
 * ~~DHCP for ethernet gadget~~
 * Add "one-stop-shop" mode that deletes options.txt after execution
+* Multiple keyboard layouts
+* Post gadget-setup script execution
 
 ## Code Changes
 * Replace C style if IsTrue() == 0 statements with bools
