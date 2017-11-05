@@ -5,6 +5,10 @@ Gadgets are configured by editing the `gadget: ` line in `/boot/usbninja/options
 
 **E.g.** `gadget: serial, storage, ethernet_ecm`
 
+The `/boot` directory is accessible from parition one of the MicroSD which is formatted as `FAT32`. This makes it easy to configure the USB Ninja from MacOS and Windows (as well as Linux) who don't have good ext4 support as standard.
+
+**NOTE:** Any option can be omitted by this file and the defaults will automatically be chosen. If you wanted, you could just have `gadget: <YOUR_GADGET>` and nothing else.
+
 ### USB-To-Serial Adapter
 To use the USB-To-Serial gadget, set `gadget` to `serial` in `options.txt`. A TTY will be made available via `/dev/ttyGS0` on the USB Ninja which shows up as `/dev/ttyACM0` on the (Linux) host. If using Windows, you can use [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). Either way, ensure that the baud rate is set to `115200`. See [SERIAL.md](SERIAL.md) for more information.
 
