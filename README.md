@@ -26,4 +26,4 @@ The other option is to just download and setup [Arch Linux ARM](https://archlinu
 ## Using other gadgets
 If you want to use gadgets other than plain old `serial` (and if you're hear - you probably do), then all you need to do is edit `usbninja/options.txt` on the first partition of the MicroSD card. This corresponds to the `/boot` directory when the OS boots up.
 
-See [GADGETS.md](doc/GADGETS.md) for more information.
+See [OPTIONS.md](doc/OPTIONS.md) and [GADGETS.md](doc/GADGETS.md) for more information.
