@@ -6,6 +6,13 @@ This guide assumes the following:
 * You've configured WiFi using any one of the numerous guides online - see [here](https://archlinuxarm.org/forum/viewtopic.php?f=31&t=11529) for an example.
 * You are using a Raspberry Pi Zero W.
 
+### Set Kernel Options
+We need to set some kernel command-line options so that our the right modules will be available to us on the Raspberry Pi.
+1. First mount the first partition of the MicroSD card.
+2. Add the **line** `dtoverlay=dwc2` to the bottom of `config.txt`
+3. Add the **word** `dwc2` to the end of `cmdline.txt`
+4. Unmount, eject, put back in the Raspberry Pi and carry on!
+
 ### Install Required Packages
 If you're unfamiliar with Arch Linux, then the only real difference (as far as we will be concerned) is the package manager, `pacman`.
 1. First, `su` into root (remember, the default root password is **root**).
