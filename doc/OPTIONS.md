@@ -28,5 +28,5 @@ productname: Composite USB Device
 |Option|Gadget|Description|Format|Default Value|
 |-|-|-|-|-|
 |`delay`|[`hid_payload`](HID.md)|The time in milliseconds to leave in between successive HID packets sent to the Host OS|Any integer|`0`|
-|`eth_hostaddr`|[`ethernet`,`ethernet_ecm`,`ethernet_rndis`](ETHERNET.md)|The MAC address of the device _supposedly_ on the other side of the USB-To-Ethernet adapter|`XX:XX:XX:XX:XX:XX`|`48:6f:73:74:50:43`|
-|`eth_devaddr`|[`ethernet`,`ethernet_ecm`,`ethernet_rndis`](ETHERNET.md)|The MAC address reported of the USB-To-Ethernet adapter itself|`XX:XX:XX:XX:XX:XX`|`42:61:64:55:53:42`|
+|`eth_hostaddr`|[`ethernet`](ETHERNET.md)|The MAC address of the device _supposedly_ on the other side of the USB-To-Ethernet adapter|`XX:XX:XX:XX:XX:XX`|`48:6f:73:74:50:43`|
+|`eth_devaddr`|[`ethernet`](ETHERNET.md)|The MAC address reported of the USB-To-Ethernet adapter itself|`XX:XX:XX:XX:XX:XX`|`42:61:64:55:53:42`|
