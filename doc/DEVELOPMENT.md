@@ -7,7 +7,7 @@ If you're looking to add functionality to the USB Ninja or devise a more advance
 All the binaries are located in `/lib/usbninja/` and are as follows:
 * `main` - The binary ran by `startup.service` that does all the work setting up the gadgets with the right configurations.
 * `sendhid` - This will just send what's in `hid.txt` via `/dev/hidg0`. You need the `hid_payload` gadget to be already active on the host for this to work. Requires root.
-* `stopall` - This will disable and remove all gadgets from `configfs`. Useful to change gadgets without having to reboot the USB Ninja. Note however, that occasionally the host can get confused (has happened to me a few times on Linux) so you might still have to unplug the device and plug it back in.
+* `stopall` - This will disable and remove all gadgets from `configfs`. Useful to change gadgets without having to reboot the USB Ninja. Note however, that occasionally the host can get confused (has happened to me a few times on Linux) so you might still have to unplug the device and plug it back in. **Can be temperamental at times!**
 
 ### Source Code
 As well as being available in this repo, the source is included in `/lib/usbninja/src/`. You can use the build scripts to compile the source code and copy the binaries up a directory.

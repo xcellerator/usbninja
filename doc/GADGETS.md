@@ -19,4 +19,4 @@ To use the USB-To-Ethernet gadget, you can use either `ethernet_ecm` or `etherne
 To parse the `/boot/usbninja/hid.txt` and send the keystrokes contained within it as HID packets, use the `hid_payload` gadget. The format of `hid.txt` is very simple and straightforward - see [HID.md](HID.md) for more information.
 
 ### Mass Storage
-The mass storage gadget is activated by including `storage` on the `gadget: ` line in `options.txt`. It makes the image in `/lib/usbninja/storage.img` available as a mass storage device to the host. For details on how to change the default image (only 64MB) and more, see [STORAGE.md](STORAGE.md).
+The mass storage gadget is activated by including `storage` on the `gadget: ` line in `options.txt`. It makes the image in `/lib/usbninja/storage.img` available as a mass storage device to the host. For details on how to change the default image (only 1GB) and more, see [STORAGE.md](STORAGE.md).
