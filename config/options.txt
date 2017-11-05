@@ -1,0 +1,33 @@
+# If any of the entries in this file are incorrectly formatted or invalid, then the defaults will be used!
+
+# Valid gadgets are:
+#   serial
+#   ethernet, ethernet_ecm
+#   ethernet_rndis
+#   hid_payload
+#   storage
+gadget: serial
+
+# Can be any 2 byte hex value in the form of 0x????.
+vendorid: 0x1d6b
+
+# Can be any 2 byte hex value in the form of 0x????.
+productid: 0x0104
+
+# Can be any 8 byte hex string in the form of ????????????????.
+serialnumber: fedcba9876543210
+
+# Not sure what the limit is for the length of the manufacturer string. Currently set to 32
+manufacturer: Generic Corp
+
+# Not sure what the limit is for the length of the productname string. Currently set to 32
+productname: USB Device
+
+# Both of these are only used if gadget is set to ethernet.
+# The first octets have to be even
+eth_hostaddr: 48:6f:73:74:50:43
+eth_devaddr: 42:61:64:55:53:42
+
+# This is only used if in hid_payload mode. Not required and only useful if debugging a problem.
+# It's the number of milliseconds to leave in between successive HID packets sent to the Host OS.
+delay: 0
