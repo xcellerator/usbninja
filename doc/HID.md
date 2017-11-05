@@ -3,6 +3,11 @@
 
 There is currently only one HID gadget available: `hid_payload`, although others are in the works. It emulates a keyboard in a similar way to the [USB Rubber Ducky](https://hakshop.com/products/usb-rubber-ducky-deluxe). The main file of importance is `/boot/usbninja/hid.txt` (accessible on partition one of the MicroSD card). The format is very similar to (and indeed heavily influenced by ) Hak5's `DuckyScript`. In fact, any DuckyScript file should also work with the USB Ninja, but some of the more advanced functions (like looping) are yet to be implemented and will simply be ignored.
 
+### Gadget-Specific `options.txt` entries
+If you are having trouble using this gadget to do with the host OS not recognizing the keystrokes quick enough, then you can try setting the `delay` options in `options.txt`. The value needs to be an integer and represents the number of milliseconds to leave inbetween successive HID packets.
+
+**NOTE:** Pressing a key (or combination of keys) and releasing them counts as _TWO_ HID packets. This means that if you set `delay` too high, the OS could end up thinking that the keys are being held too long and you'll get doubles of everything (think what happens if you hold the `A` key for more than half a second or so).
+
 ### Example `hid.txt`
 The following will open `notepad.exe` on Windows and type "Hello, World!". As you can see, it is very straightforward.
 ```
