@@ -8,6 +8,8 @@ Currently supported gadgets are:
 * [HID Emulation](doc/HID.md) (currently keyboard only)
 * [Mass Storage](doc/STORAGE.md)
 
+Please check out [ADDED.md](ADDED.md) for details about all the new features being added!
+
 ## Getting Started
 ### Flash the image
 If you've got a Raspberry Pi Zero (W), then its as simple as flashing the image to a MicroSD card popping it in. By default, the USB Ninja will start up in `serial` mode with a baud rate of `115200`.
