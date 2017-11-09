@@ -230,13 +230,6 @@ func GetHID() string {
 func GetOptionLocation() string {
 	// Typically returns /boot/usbninja/options.txt
 	// Defaults to the one in /lib/ if not found
-	var file_location string
-
-	if FileExist("/boot/usbninja/options.txt") {
-		file_location = "/boot/usbninja/options.txt"
-	} else {
-		file_location = "/lib/usbninja/config/options.txt"
-	}
-
+	file_location := "/boot/usbninja/options.txt"
 	return file_location
 }
