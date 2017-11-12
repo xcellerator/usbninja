@@ -8,6 +8,11 @@
 #   storage
 gadget: serial
 
+# Can be any script or executable on the filesystem.
+# Either an absolute path or a path relative to `/boot/usbninja/` will work
+# The executable bit must also be set. See Documentation for details.
+post: changeme
+
 # Can be any 2 byte hex value in the form of 0x????.
 vendorid: 0x1d6b
 

@@ -26,6 +26,7 @@ productname: Composite USB Device
 |`productname`|The Product Name string reported to the Host OS|Up to 32 characters long|`USB Device`|
 
 **Note: The `post` script can be either an absolute path or a path relative to `/boot/usbninja/`.**
+**Note: The `post` script must also have the executable bit set with `sudo chmod +x /path/to/file`.**
 
 ### Settings available to certain gadgets
 |Option|Gadget|Description|Format|Default Value|
