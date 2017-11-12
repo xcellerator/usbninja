@@ -24,3 +24,7 @@ As detailed on the [ethernet](ETHERNET.md) page, the `ethernet` gadget is just a
 **6. I'm trying to use multiple gadgets at once, but it isn't working!**
 
 Multiple gadget support is currently still in testing. As far as I have seen - it seems to work just fine, but if you've found a combination that doesn't work as expected (and you have reason to think it should), then please raise an issue on this repo.
+
+**7. My `post` script isn't running even though the path is right in `options.txt`!**
+
+If you're sure the path is right (note that you can specify either an absolute path or a path relative to `/boot/usbninja/`), then you might need to set the executable bit on the file. If your script is `/boot/usbninja/exec.sh`, then you can set the executable bit with the following command: `sudo chmod +x /boot/usbninja/exec.sh`
