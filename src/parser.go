@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"strconv"
 	"strings"
+	"fmt"
 )
 
 func GetGadgets() []string {
@@ -172,7 +173,7 @@ func GetConfig() []string {
 
 				val := strings.TrimSpace(key_val[1])
 				val2 := fmt.Sprintf("/boot/usbninja/%s", val)
-				
+
 				if FileExist(val) {
 					post = val
 				} else if FileExist(val2) {
