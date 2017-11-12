@@ -4,6 +4,8 @@ The USB Ninja is an advanced USB attack development platform designed to be as s
 
 **Post-Setup Scripts can now be set! See [ADDED.md](ADDED.md) or [OPTIONS.md](doc/OPTIONS.md) for more information!**
 
+**A new release with this new update is on the way! Stay tuned!**
+
 Currently supported gadgets are:
 * [USB-To-Serial](doc/SERIAL.md)
 * [USB-To-Ethernet](doc/ETHERNET.md)
