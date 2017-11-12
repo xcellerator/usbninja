@@ -5,9 +5,11 @@
 * hid_remote gadget
 * Add "one-stop-shop" mode that deletes options.txt after execution
 * Multiple keyboard layouts
-* Post gadget-setup script execution
+* ~~Post gadget-setup script execution~~ (See [ADDED.md](ADDED.md))
+* Add some API functions for post-setup scripts to use
 
 ## Code Changes
+* **Find a better way to distribute releases other than an 8GB image!**
 * Replace C style if IsTrue() == 0 statements with bools
 * Replace config array with map for clarity - removes need for GetOption()
 * Speed up boot time of Raspberry Pi

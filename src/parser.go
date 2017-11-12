@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"strconv"
 	"strings"
+	"fmt"
 )
 
 func GetGadgets() []string {
@@ -45,7 +46,7 @@ func GetGadgets() []string {
 
 func GetConfig() []string {
 	// Parse out options from options.txt and return as an array
-	var delay, vendorid, productid, serialnumber, manufacturer, productname, eth_hostaddr, eth_devaddr string
+	var delay, vendorid, productid, serialnumber, manufacturer, productname, eth_hostaddr, eth_devaddr, post string
 
 	// Check for options.txt locations
 	file_location := GetOptionLocation()
@@ -166,8 +167,22 @@ func GetConfig() []string {
 				slice := key_val[1:]
 				eth_devaddr = strings.TrimSpace(strings.Join(slice, ":"))
 			}
+
+			} else if key_val[0] == "post" {
+				// Check if the file exists, and set post to empty otherwise
+
+				val := strings.TrimSpace(key_val[1])
+				val2 := fmt.Sprintf("/boot/usbninja/%s", val)
+
+				if FileExist(val) {
+					post = val
+				} else if FileExist(val2) {
+					post = val2
+				} else {
+					post = ""
+				}
+			}
 		}
-	}
 
 	if delay == "" {
 		delay = SetDefaults("delay")
@@ -193,8 +208,11 @@ func GetConfig() []string {
 	if eth_devaddr == "" {
 		eth_devaddr = SetDefaults("eth_devaddr")
 	}
+	if post == "" {
+		post = SetDefaults("post")
+	}
 
-	return []string{delay, vendorid, productid, serialnumber, manufacturer, productname, eth_hostaddr, eth_devaddr}
+	return []string{delay, vendorid, productid, serialnumber, manufacturer, productname, eth_hostaddr, eth_devaddr, post}
 }
 
 func SetDefaults(options string) string {
@@ -221,6 +239,9 @@ func SetDefaults(options string) string {
 	}
 	if options == "eth_devaddr" || options == "all" {
 		return "42:61:64:55:53:42"
+	}
+	if options == "post" || options == "all" {
+		return "echo"
 	}
 	return "error"
 }
@@ -380,6 +401,8 @@ func GetOption(config []string, option string) string {
 		return string(config[6])
 	case "eth_devaddr":
 		return string(config[7])
+	case "post":
+		return string(config[8])
 	}
 	return "error"
 }

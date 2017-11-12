@@ -18,11 +18,16 @@ productname: Composite USB Device
 |Option|Description|Format|Default Value|
 |-|-|-|-|
 |`gadget`|The USB gadget(s) to be used|`gadget1, gadget2, etc`|`serial`|
+|`post`|An executable or script to be run after all the gadgets are setup (See below)|`file` or `/path/to/file`|none|
 |`vendorid`|The VID presented to the Host OS|`0x????` (two hex bytes)|`0x1d6b`|
 |`productid`|The PID prestented to the Host OS|`0x????` (two hex bytes)|`0x0104`|
 |`serialnumber`|The Serial Number of the emulated device|`????????????????` (16 hex characters)|`fedcba9876543210`|
 |`manufacturer`|The Manufacturer string reported to the Host OS|Up to 32 characters long|`Generic Corp`|
 |`productname`|The Product Name string reported to the Host OS|Up to 32 characters long|`USB Device`|
+
+**Note:** The `post` script can be either an absolute path or a path relative to `/boot/usbninja/`.
+
+**Note:** The `post` script must also have the executable bit set with `sudo chmod +x /path/to/file`.
 
 ### Settings available to certain gadgets
 |Option|Gadget|Description|Format|Default Value|
