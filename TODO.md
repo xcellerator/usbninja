@@ -5,7 +5,7 @@
 * hid_remote gadget
 * Add "one-stop-shop" mode that deletes options.txt after execution
 * Multiple keyboard layouts
-* ~~Post gadget-setup script execution~~
+* ~~Post gadget-setup script execution~~ (See [ADDED.md](ADDED.md))
 * Add some API functions for post-setup scripts to use
 
 ## Code Changes
