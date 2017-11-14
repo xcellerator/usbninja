@@ -208,7 +208,7 @@ func GetConfig() []string {
 	if eth_devaddr == "" {
 		eth_devaddr = SetDefaults("eth_devaddr")
 	}
-	if post == "" {
+	if (post == "" || post == "/boot/usbninja" || post == "/boot/usbninja/") {
 		post = SetDefaults("post")
 	}
 
