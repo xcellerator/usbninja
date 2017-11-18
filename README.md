@@ -2,42 +2,44 @@
 
 The USB Ninja is an advanced USB attack development platform designed to be as simple as possible whilst leaving as many options open for development. Written in Golang, it was developed on a Raspberry Pi Zero W, but should work on any device that supports USB OTG - see the list of [Supported Devices](doc/SUPPORTED.md). It makes heavy use of [configfs](https://www.kernel.org/doc/Documentation/filesystems/configfs/configfs.txt) to configure and present the drivers to the host system. See the [FAQ](doc/FAQ.md) for more information.
 
-**Post-Setup Scripts can now be set! See [ADDED.md](ADDED.md) or [OPTIONS.md](doc/OPTIONS.md) for more information!**
-
-**A new release with this new update is on the way! Stay tuned!**
-
 Currently supported gadgets are:
 * [USB-To-Serial](doc/SERIAL.md)
 * [USB-To-Ethernet](doc/ETHERNET.md)
 * [HID Emulation](doc/HID.md) (currently keyboard only)
 * [Mass Storage](doc/STORAGE.md)
 
-Download USB Ninja v1.0 from [here](https://mega.nz/#!H8E2gRrY!k2cv3XcMCp6nspSMlGr8vM6tULEOGLmcGLj2zAcT63w)!
-
-|Filename|Size|Sha1sum|
-|-|-|-|
-|USBNinja_v1.7z|2.1G|495a180f6c92dfac0f8efb095bdf2f61f83c2dd0|
-|USBNinja_v1.img|7.5G|57828c5b8ae61da53e110799c46cfdfa6eb21a50|
-
 Please check out [ADDED.md](ADDED.md) for details about all the new features being added!
 
 For examples of how to use the USB Ninja in different situations, check out my blog at [xcellerator.github.io](https://xcellerator.github.io)!
 
 ## Getting Started
-### Flash the image
-If you've got a Raspberry Pi Zero (W), then its as simple as flashing the image to an 8GB MicroSD card popping it in.
+Getting setup with the USBNinja is pretty simple, as long as you're happy with the Linux command-line.
+1. First of all, head over to <LINK> to download the latest release files. You need both `root.tar.gz` and `boot.tar.gz`.
+2. Create a new folder (doesn't matter where) to act as our working directory. You'll only need this during the first setup.
+3. Create two folders within this called `boot` and `root` and then copy `boot.tar.gz` and `root.tar.gz` to the working folder.
+* i.e. You should have `boot`, `boot.tar.gz`, `root`, and `root.tar.gz` sitting in your working folder.
+4. Insert your MicroSD card into your computer and check whats its called under `/dev/` using a quick `lsblk`. I use an SD adapter, so its called `mmcblk0` for me.
+5. Now fire up fdisk with `sudo fdisk /dev/mmcblk0`.
+..a. Type `o`. This will wipe any existing partitions on the card.
+..b. Type `n`, then `p` for a primary partition.
+..c. Type `1` for the first partition, then **ENTER** for the default starting sector, then `+100M` for a 100MB boot partition.
+..d. Type `t`, then `c` to set the first partition as "W95 FAT32 (LBA)".
+..e. Type `n`, then `p` for another primary partition.
+..f. Type `2` for the second partition, then **ENTER** twice to fill the rest of the card.
+..g. Now you can write the new partition table with `w`.
+6. Next, we create the filesystems on the two partitions:
+..a. `sudo mkfs.vfat /dev/mmcblk0p1`
+..b. `sudo mkfs.ext4 /dev/mmcblk0p2`
+7. Now, mount the two partitions to our `root` and `boot` folders:
+..a. `sudo mount /dev/mmcblk0p1 boot`
+..b. `sudo mount /dev/mmcblk0p2 root`
+8. Extract the release to the mounted partitions
+..a. `sudo bsdtar -xpf boot.tar.gz`
+..b. `sudo bsdtar -xpf root.tar.gz`
+9. Finally, you can `sync` (this will take a little while - don't worry!) and then `sudo umount boot root` to unmount the MicroSD card.
+10. Pop the MicroSD card back into the Raspbery Pi and boot it up! Make sure you use the "USB OTG" port on the board (the one next to the mini-HDMI port).
+11. After a few seconds, you should see a new serial device show up in `dmesg`. You can use either `screen` or `minicom` to access it. E.g. `sudo minicom -b
 
-A simple `dd if=USBNinja_v1.img of=/dev/mmcblk0` should do the job.
-
-By default, the USB Ninja will start up in `serial` mode with a baud rate of `115200`.
-
-* Make sure the Micro USB end is plugged into the OTG port of the Pi (its labelled `USB` on the board)
-
-* On Linux or MacOS, you can type `dmesg | tail` and should see something like `cdc_acm 1-2:1.0: ttyACM0: USB ACM device`.
-..* E.g. `minicom -b 115200 -D /dev/ttyACM0` or `screen /dev/ttyACM0 115200`
-
-* On Windows, use [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) to connect.
-* The default login is **alarm:alarm**.
 
 ### Build from source
 The other option is to just download and setup [Arch Linux ARM](https://archlinuxarm.org/platforms/armv6/raspberry-pi) by yourself and follow the instructions in [INSTALL.md](INSTALL.md) to compile the binaries from source and setup all the other services. The process is exactly the same as what was done to prepare the image.
