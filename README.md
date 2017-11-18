@@ -20,22 +20,22 @@ Getting setup with the USBNinja is pretty simple, as long as you're happy with t
 * i.e. You should have `boot`, `boot.tar.gz`, `root`, and `root.tar.gz` sitting in your working folder.
 4. Insert your MicroSD card into your computer and check whats its called under `/dev/` using a quick `lsblk`. I use an SD adapter, so its called `mmcblk0` for me.
 5. Now fire up fdisk with `sudo fdisk /dev/mmcblk0`.
-..* Type `o`. This will wipe any existing partitions on the card.
-..* Type `n`, then `p` for a primary partition.
-..* Type `1` for the first partition, then **ENTER** for the default starting sector, then `+100M` for a 100MB boot partition.
-..* Type `t`, then `c` to set the first partition as "W95 FAT32 (LBA)".
-..* Type `n`, then `p` for another primary partition.
-..* Type `2` for the second partition, then **ENTER** twice to fill the rest of the card.
-..* Now you can write the new partition table with `w`.
+   * Type `o`. This will wipe any existing partitions on the card.
+   * Type `n`, then `p` for a primary partition.
+   * Type `1` for the first partition, then **ENTER** for the default starting sector, then `+100M` for a 100MB boot partition.
+   * Type `t`, then `c` to set the first partition as "W95 FAT32 (LBA)".
+   * Type `n`, then `p` for another primary partition.
+   * Type `2` for the second partition, then **ENTER** twice to fill the rest of the card.
+   * Now you can write the new partition table with `w`.
 6. Next, we create the filesystems on the two partitions:
-..* `sudo mkfs.vfat /dev/mmcblk0p1`
-..* `sudo mkfs.ext4 /dev/mmcblk0p2`
+   * `sudo mkfs.vfat /dev/mmcblk0p1`
+   * `sudo mkfs.ext4 /dev/mmcblk0p2`
 7. Now, mount the two partitions to our `root` and `boot` folders:
-..* `sudo mount /dev/mmcblk0p1 boot`
-..* `sudo mount /dev/mmcblk0p2 root`
+   * `sudo mount /dev/mmcblk0p1 boot`
+   * `sudo mount /dev/mmcblk0p2 root`
 8. Extract the release to the mounted partitions
-..* `sudo bsdtar -xpf boot.tar.gz`
-..* `sudo bsdtar -xpf root.tar.gz`
+   * `sudo bsdtar -xpf boot.tar.gz`
+   * `sudo bsdtar -xpf root.tar.gz`
 9. Finally, you can `sync` (this will take a little while - don't worry!) and then `sudo umount boot root` to unmount the MicroSD card.
 10. Pop the MicroSD card back into the Raspbery Pi and boot it up! Make sure you use the "USB OTG" port on the board (the one next to the mini-HDMI port).
 11. After a few seconds, you should see a new serial device show up in `dmesg`. You can use either `screen` or `minicom` to access it. E.g. `sudo minicom -b
