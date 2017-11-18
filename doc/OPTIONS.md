@@ -18,12 +18,13 @@ productname: Composite USB Device
 |Option|Description|Format|Default Value|
 |-|-|-|-|
 |`gadget`|The USB gadget(s) to be used|`gadget1, gadget2, etc`|`serial`|
-|`post`|An executable or script to be run after all the gadgets are setup (See below)|`file` or `/path/to/file`|none|
-|`vendorid`|The VID presented to the Host OS|`0x????` (two hex bytes)|`0x1d6b`|
-|`productid`|The PID prestented to the Host OS|`0x????` (two hex bytes)|`0x0104`|
-|`serialnumber`|The Serial Number of the emulated device|`????????????????` (16 hex characters)|`fedcba9876543210`|
-|`manufacturer`|The Manufacturer string reported to the Host OS|Up to 32 characters long|`Generic Corp`|
-|`productname`|The Product Name string reported to the Host OS|Up to 32 characters long|`USB Device`|
+|`post`|(Optional) An executable or script to be run after all the gadgets are setup (See below)|`file` or `/path/to/file`|none|
+|`vendorid`|(Optional) The VID presented to the Host OS|`0x????` (two hex bytes)|`0x1d6b`|
+|`productid`|(Optional) The PID prestented to the Host OS|`0x????` (two hex bytes)|`0x0104`|
+|`serialnumber`|(Optional) The Serial Number of the emulated device|`????????????????` (16 hex characters)|`fedcba9876543210`|
+|`manufacturer`|(Optional) The Manufacturer string reported to the Host OS|Up to 32 characters long|`Generic Corp`|
+|`productname`|(Optional) The Product Name string reported to the Host OS|Up to 32 characters long|`USB Device`|
+|`storage`|(Optional) An absolute path to an image file. See [HID.md](HID.md)|`/path/to/file`|`/lib/usbninja/storage.img`|
 
 **Note:** The `post` script can be either an absolute path or a path relative to `/boot/usbninja/`.
 

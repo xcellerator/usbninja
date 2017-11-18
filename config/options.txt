@@ -1,4 +1,6 @@
 # If any of the entries in this file are incorrectly formatted or invalid, then the defaults will be used!
+# The only required option to be set is gadget.
+# All other options are optional.
 
 # Valid gadgets are:
 #   serial
@@ -32,6 +34,10 @@ productname: USB Device
 # The first octets have to be even
 eth_hostaddr: 48:6f:73:74:50:43
 eth_devaddr: 42:61:64:55:53:42
+
+# This is only used in storage mode. If you have created your own backing file, then set it below.
+# By default, this is /lib/usbninja/storage.img
+storage: /lib/usbninja/storage.img
 
 # This is only used if in hid_payload mode. Not required and only useful if debugging a problem.
 # It's the number of milliseconds to leave in between successive HID packets sent to the Host OS.

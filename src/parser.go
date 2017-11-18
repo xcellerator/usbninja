@@ -46,7 +46,7 @@ func GetGadgets() []string {
 
 func GetConfig() []string {
 	// Parse out options from options.txt and return as an array
-	var delay, vendorid, productid, serialnumber, manufacturer, productname, eth_hostaddr, eth_devaddr, post string
+	var delay, vendorid, productid, serialnumber, manufacturer, productname, eth_hostaddr, eth_devaddr, post, storage string
 
 	// Check for options.txt locations
 	file_location := GetOptionLocation()
@@ -181,7 +181,15 @@ func GetConfig() []string {
 				} else {
 					post = ""
 				}
-			}
+			} else if key_val[0] == "storage" {
+				// Check if the file exists, and leave empty otherwise
+
+				val := strings.TrimSpace(key_val[1])
+
+				if FileExist(val) {
+					storage = val
+				}
+				}
 		}
 
 	if delay == "" {
@@ -211,8 +219,11 @@ func GetConfig() []string {
 	if (post == "" || post == "/boot/usbninja" || post == "/boot/usbninja/") {
 		post = SetDefaults("post")
 	}
+	if storage == "" {
+		storage = SetDefaults("storage")
+	}
 
-	return []string{delay, vendorid, productid, serialnumber, manufacturer, productname, eth_hostaddr, eth_devaddr, post}
+	return []string{delay, vendorid, productid, serialnumber, manufacturer, productname, eth_hostaddr, eth_devaddr, post, storage}
 }
 
 func SetDefaults(options string) string {
@@ -242,6 +253,9 @@ func SetDefaults(options string) string {
 	}
 	if options == "post" || options == "all" {
 		return "echo"
+	}
+	if options == "storage" || options == "all" {
+		return "/lib/usbninja/storage.img"
 	}
 	return "error"
 }
@@ -403,6 +417,8 @@ func GetOption(config []string, option string) string {
 		return string(config[7])
 	case "post":
 		return string(config[8])
+	case "storage":
+		return string(config[9])
 	}
 	return "error"
 }
