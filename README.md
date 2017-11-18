@@ -14,7 +14,7 @@ For examples of how to use the USB Ninja in different situations, check out my b
 
 ## Getting Started
 Getting setup with the USBNinja is pretty simple, as long as you're happy with the Linux command-line.
-1. First of all, head over to <LINK> to download the latest release files. You need both `root.tar.gz` and `boot.tar.gz`.
+1. First of all, head over to [Releases](https://github.com/xcellerator/usbninja/releases) to download the latest release files. You need both `root.tar.gz` and `boot.tar.gz`.
 2. Create a new folder (doesn't matter where) to act as our working directory. You'll only need this during the first setup.
 3. Create two folders within this called `boot` and `root` and then copy `boot.tar.gz` and `root.tar.gz` to the working folder.
 * i.e. You should have `boot`, `boot.tar.gz`, `root`, and `root.tar.gz` sitting in your working folder.
