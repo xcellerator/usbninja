@@ -24,7 +24,6 @@ productname: Composite USB Device
 |`serialnumber`|(Optional) The Serial Number of the emulated device|`????????????????` (16 hex characters)|`fedcba9876543210`|
 |`manufacturer`|(Optional) The Manufacturer string reported to the Host OS|Up to 32 characters long|`Generic Corp`|
 |`productname`|(Optional) The Product Name string reported to the Host OS|Up to 32 characters long|`USB Device`|
-|`storage`|(Optional) An absolute path to an image file. See [HID.md](HID.md)|`/path/to/file`|`/lib/usbninja/storage.img`|
 
 **Note:** The `post` script can be either an absolute path or a path relative to `/boot/usbninja/`.
 
@@ -33,6 +32,7 @@ productname: Composite USB Device
 ### Settings available to certain gadgets
 |Option|Gadget|Description|Format|Default Value|
 |-|-|-|-|-|
-|`delay`|[`hid_payload`](HID.md)|The time in milliseconds to leave in between successive HID packets sent to the Host OS|Any integer|`0`|
-|`eth_hostaddr`|[`ethernet`](ETHERNET.md)|The MAC address of the device _supposedly_ on the other side of the USB-To-Ethernet adapter|`XX:XX:XX:XX:XX:XX`|`48:6f:73:74:50:43`|
-|`eth_devaddr`|[`ethernet`](ETHERNET.md)|The MAC address reported of the USB-To-Ethernet adapter itself|`XX:XX:XX:XX:XX:XX`|`42:61:64:55:53:42`|
+|`delay`|[`hid_payload`](HID.md)|(Optional) The time in milliseconds to leave in between successive HID packets sent to the Host OS|Any integer|`0`|
+|`eth_hostaddr`|[`ethernet`](ETHERNET.md)|(Optional) The MAC address of the device _supposedly_ on the other side of the USB-To-Ethernet adapter|`XX:XX:XX:XX:XX:XX`|`48:6f:73:74:50:43`|
+|`eth_devaddr`|[`ethernet`](ETHERNET.md)|(Optional) The MAC address reported of the USB-To-Ethernet adapter itself|`XX:XX:XX:XX:XX:XX`|`42:61:64:55:53:42`|
+|`storage`|[`storage`](STORAGE.md)|(Optional) An absolute path to an image file.|`/path/to/file`|`/lib/usbninja/storage.img`|
