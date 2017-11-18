@@ -10,7 +10,7 @@
 * ~~Add option to set alternative backing file in storage mode~~
 
 ## Code Changes
-* **Find a better way to distribute releases other than an 8GB image!**
+* ~~Find a better way to distribute releases other than an 8GB image!~~
 * Replace C style if IsTrue() == 0 statements with bools
 * Replace config array with map for clarity - removes need for GetOption()
 * Speed up boot time of Raspberry Pi
