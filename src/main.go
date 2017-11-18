@@ -15,7 +15,7 @@ func main() {
 	// Check which gagdet is set and branch accordingly
 	gadgets := GetGadgets()
 
-	fmt.Printf("LOG: Options set as:\n=>delay: %s\n=> vendorid: %s\n=> productid: %s\n=> serialnumber: %s\n=>manufacturer: %s\n=>productname: %s\n=>post: %s\n\n", GetOption(config, "delay"), GetOption(config, "vendorid"), GetOption(config, "productid"), GetOption(config, "serialnumber"), GetOption(config, "manufacturer"), GetOption(config, "productname"), GetOption(config, "post"))
+	fmt.Printf("LOG: Options set as:\n=>delay: %s\n=> vendorid: %s\n=> productid: %s\n=> serialnumber: %s\n=>manufacturer: %s\n=>productname: %s\n=>post: %s\n=>storage: %s\n\n", GetOption(config, "delay"), GetOption(config, "vendorid"), GetOption(config, "productid"), GetOption(config, "serialnumber"), GetOption(config, "manufacturer"), GetOption(config, "productname"), GetOption(config, "post"), GetOption(config, "storage"))
 	fmt.Printf("LOG: Gadgets set as: %v\n", gadgets)
 
 	// SetupGenericGadget

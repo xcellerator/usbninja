@@ -7,6 +7,7 @@
 * Multiple keyboard layouts
 * ~~Post gadget-setup script execution~~ (See [ADDED.md](ADDED.md))
 * Add some API functions for post-setup scripts to use
+* ~~Add option to set alternative backing file in storage mode~~
 
 ## Code Changes
 * **Find a better way to distribute releases other than an 8GB image!**

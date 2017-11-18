@@ -14,7 +14,8 @@ import (
 
 func StorageGadgetSetup(config []string) {
 
-  storageimg := "/lib/usbninja/storage.img"
+  //Get the storage.img from the config. If not set or points to nonexistent file, will be default in /lib/usbninja
+  storageimg := GetOption(config,"storage")
 
   // Sprintf the directory locations
   function_loc := fmt.Sprintf("%sfunctions/mass_storage.usb0", configfs)
