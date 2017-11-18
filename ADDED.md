@@ -23,3 +23,13 @@ You can do this with a simple `chmod` as below:
 ```
 $ sudo chmod +x /boot/usbninja/exec.sh
 ```
+
+### Alternative Backing File in `storage` mode
+
+By default, the backing file used in `storage` mode is the one located at `/lib/usbninja/storage.img`. However, you can create another one, as detailed in [STORAGE.img](src/STORAGE.img). Once done, you can specify the location of your new backing file in `options.txt` with the `storage: ` line.
+```
+.
+.
+.
+storage: /home/alarm/backing_file.img
+```
