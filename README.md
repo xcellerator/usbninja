@@ -40,6 +40,8 @@ Getting setup with the USBNinja is pretty simple, as long as you're happy with t
 10. Pop the MicroSD card back into the Raspbery Pi and boot it up! Make sure you use the "USB OTG" port on the board (the one next to the mini-HDMI port).
 11. After a few seconds, you should see a new serial device show up in `dmesg`. You can use either `screen` or `minicom` to access it. E.g. `sudo minicom -b 115200 -D /dev/ttyACM0` or `sudo screen /dev/ttyACM0 115200`.
 
+**Note:** The default login is **alarm:alarm** and the root account is **root:root**. By default the alarm user is already in the wheel group.
+
 ### Build from source
 The other option is to just download and setup [Arch Linux ARM](https://archlinuxarm.org/platforms/armv6/raspberry-pi) by yourself and follow the instructions in [INSTALL.md](INSTALL.md) to compile the binaries from source and setup all the other services. The process is exactly the same as what was done to prepare the image.
 
