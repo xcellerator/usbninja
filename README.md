@@ -10,7 +10,7 @@ Currently supported gadgets are:
 
 Please check out [ADDED.md](ADDED.md) for details about all the new features being added!
 
-For examples of how to use the USB Ninja in different situations, check out my blog at [xcellerator.github.io](https://xcellerator.github.io)!
+**Looking for some examples?** Check out my blog at [xcellerator.github.io](https://xcellerator.github.io)!
 
 ## Getting Started
 Getting setup with the USBNinja is pretty simple, as long as you're happy with the Linux command-line.
