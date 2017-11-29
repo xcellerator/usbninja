@@ -36,4 +36,4 @@ productname: Composite USB Device
 |`eth_hostaddr`|[`ethernet`](ETHERNET.md)|(Optional) The MAC address of the device _supposedly_ on the other side of the USB-To-Ethernet adapter|`XX:XX:XX:XX:XX:XX`|`48:6f:73:74:50:43`|
 |`eth_devaddr`|[`ethernet`](ETHERNET.md)|(Optional) The MAC address reported of the USB-To-Ethernet adapter itself|`XX:XX:XX:XX:XX:XX`|`42:61:64:55:53:42`|
 |`storage`|[`storage`](STORAGE.md)|(Optional) An absolute path to an image file.|`/path/to/file`|`/lib/usbninja/storage.img`|
-|`storage_ro`|[`storage`](STORAGE.md)|(Optional) yes/no|no|
+|`storage_ro`|[`storage`](STORAGE.md)|(Optional) Sets the mass storage device as read-only|yes/no|no|
