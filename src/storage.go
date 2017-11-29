@@ -14,8 +14,10 @@ import (
 
 func StorageGadgetSetup(config []string) {
 
-  //Get the storage.img from the config. If not set or points to nonexistent file, will be default in /lib/usbninja
+  // Get the storage.img from the config. If not set or points to nonexistent file, will be default in /lib/usbninja
+  // Also get the setting for read-only mode
   storageimg := GetOption(config,"storage")
+  readonly := GetOption(config,"storage_ro")
 
   // Sprintf the directory locations
   function_loc := fmt.Sprintf("%sfunctions/mass_storage.usb0", configfs)
@@ -43,7 +45,7 @@ func StorageGadgetSetup(config []string) {
 
   WriteLine("1", stall_loc)
   WriteLine("0", cdrom_loc)
-  WriteLine("0", ro_loc)
+  WriteLine(readonly, ro_loc)
   WriteLine("0", nofua_loc)
   WriteLine(storageimg, file_loc)
 
