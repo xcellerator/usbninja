@@ -1,7 +1,7 @@
 # TODO
 
 ## Features
-* Add option to set storage as read-only on Host PC
+* ~~Add option to set storage as read-only on Host PC~~
 * Smart VID/PID decisions based on chosen gadget
 * hid_remote gadget
 * Add "one-stop-shop" mode that deletes options.txt after execution
