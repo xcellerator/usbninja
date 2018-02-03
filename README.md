@@ -14,6 +14,9 @@ Please check out [ADDED.md](ADDED.md) for details about all the new features bei
 
 ## Getting Started
 Getting setup with the USBNinja is pretty simple, as long as you're happy with the Linux command-line.
+
+You can follow the instructions below, or head over to my blog [here](https://xcellerator.github.io/blog/2017/11/21/getting-started-with-the-usbninja/) for a more detailed guide on the first time setup!
+
 1. First of all, head over to [Releases](https://github.com/xcellerator/usbninja/releases) to download the latest release files. You need both `root.tar.gz` and `boot.tar.gz`.
 2. Create a new folder (doesn't matter where) to act as our working directory. You'll only need this during the first setup.
 3. Create two folders within this called `boot` and `root` and then copy `boot.tar.gz` and `root.tar.gz` to the working folder.
