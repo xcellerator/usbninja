@@ -1,6 +1,7 @@
 # TODO
 
 ## Features
+* Build a nice, easy-to-use install script!
 * ~~Add option to set storage as read-only on Host PC~~
 * Smart VID/PID decisions based on chosen gadget
 * hid_remote gadget
