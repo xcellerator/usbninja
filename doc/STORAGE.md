@@ -3,6 +3,11 @@
 
 The mass storage gadget is activated by putting `storage` on the `gadget: ` line in `options.txt`. By default, there is a total of 1GB available, but this can be changed by quite easily. The "storage" part of mass storage arises from the "backing file", one of which can be located in `/lib/usbninja/storage.img`. You can create your own backing file by following the instructions below, and then set the location in `options.txt`.
 
+### Gadget-Specific `options.txt` entries
+You have two extra (optional) configurations available to you in `options.txt`
+* `storage_ro` - Determines whether the storage device will be presented as read-only or not. Can be set to either `yes` or `no`.
+* `storage` - An absolute path to another backing file if the default one is too small for you.
+
 **Note: You do not need to do this. There is an existing empty `storage.img` file already in place in `/lib/usbninja/storage.img`.**
 
 ### Creating your own backing file
