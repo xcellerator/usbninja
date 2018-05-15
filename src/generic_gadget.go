@@ -34,6 +34,10 @@ func SetupGenericGadget(config []string) int {
 	maxpower_loc := fmt.Sprintf("%sconfigs/c.1/MaxPower", configfs)
 
 	// Try and create the required directories
+	fmt.Printf("LOG: Trying to mount configfs\n")
+	MountConfigFS := exec.Command("mount", "-t", "configfs", "none", "/sys/kernel/config/")
+	MountConfigFSError := MountConfigFS.Run()
+
 	fmt.Printf("LOG: Trying to create configfs directory\n")
 	MakeDirUSB := exec.Command("mkdir", "-p", configfs)
 	MakeDirUSBError := MakeDirUSB.Run()
@@ -49,8 +53,13 @@ func SetupGenericGadget(config []string) int {
 	MakeDirC1StringsError := MakeDirC1Strings.Run()
 
 	// If creating the directories failed, exit
+	if MountConfigFSError != nil {
+		fmt.Printf("LOG: Failed to mount configfs! Trying to continue anyway...\n")
+	}
+
 	if MakeDirUSBError != nil || MakeDirStringsError != nil || MakeDirC1StringsError != nil {
 		fmt.Printf("LOG: (FAIL) Unable to create one or more of the directories\n")
+		fmt.Printf("%s\n", MakeDirUSBError)
 		os.Exit(1)
 	} else {
 		fmt.Printf("LOG: (SUCCESS) Directories created successfully\n")

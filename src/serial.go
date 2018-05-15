@@ -42,7 +42,7 @@ func SerialPostSetup(config []string) {
 
   // Now the gadget is live, we can fire up a TTY on the device
   fmt.Printf("LOG: Starting a TTY on /dev/ttyGS0\n")
-  StartService := exec.Command("systemctl", "start", "getty@ttyGS0.service")
+  StartService := exec.Command("agetty", "-L", "ttyGS0", "115200", "vt100")
   StartServiceError := StartService.Run()
 
   if ( StartServiceError != nil ) {

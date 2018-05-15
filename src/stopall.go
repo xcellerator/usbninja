@@ -21,12 +21,8 @@ func main() {
   }
 
   // First, we stop any services running via systemd that could have been activated!
-  // Stop TTY for serial
-  StopTTYCmd := exec.Command("systemctl", "stop", "getty@ttyS0.service")
-  StopTTYCmdError := StopTTYCmd.Run()
-
   // Stop DNSMasq for ethernet adapter
-  StopDNSMasq := exec.Command("systemctl", "stop", "dnsmasq.service")
+  StopDNSMasq := exec.Command("killall", "stop", "dnsmasq")
   StopDNSMasqError := StopDNSMasq.Run()
 
   // Bring down usb0 interface
@@ -34,9 +30,9 @@ func main() {
   BringDownIfCmdError := BringDownIfCmd.Run()
 
   // Check for errors
-  if ( StopTTYCmdError != nil || StopDNSMasqError != nil || BringDownIfCmdError != nil ){
+  if ( StopDNSMasqError != nil || BringDownIfCmdError != nil ){
     fmt.Println("Failed to stop services before bringing down UDC!")
-    fmt.Printf("StopTTYCmdError = %v\nStopDNSMasqError = %v\nBringDownIfCmdError = %v\n", StopTTYCmdError, StopDNSMasqError, BringDownIfCmdError)
+    fmt.Printf("StopDNSMasqError = %v\nBringDownIfCmdError = %v\n", StopDNSMasqError, BringDownIfCmdError)
     fmt.Printf("\nTrying to continue anyway...\n")
   }
 

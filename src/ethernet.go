@@ -55,8 +55,15 @@ func EthernetPostSetup(config []string) {
 	RouteCmd := exec.Command("route", "add", "-net", "default", "gw", "10.0.0.2")
 	RouteCmdError := RouteCmd.Run()
 
-	DnsmasqCmd := exec.Command("systemctl", "start", "dnsmasq.service")
+	DnsmasqKill := exec.Command("killall", "dnsmasq")
+	DnsmasqKillError := DnsmasqKill.Run()
+
+	DnsmasqCmd := exec.Command("dnsmasq", "-i", "usb0", "-F", "10.0.0.2,10.0.0.2", "-O", "3,10.0.0.1")
 	DnsmasqCmdError := DnsmasqCmd.Run()
+
+	if DnsmasqKillError != nil {
+		fmt.Printf("LOG: Didn't kill dnsmasq.. Trying to continue anyway...\n")
+	}
 
 	if IfconfigCmdError != nil || RouteCmdError != nil || DnsmasqCmdError != nil {
 		fmt.Printf("LOG: (ERROR) Something post-finalizing went wrong!\nIfconfigCmdError: %v\nRouteCmdError: %v\nDnsmasqCmdError: %v\n")
